@@ -508,6 +508,10 @@
   .footer-col h5{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted-2); margin-bottom:14px;}
   .footer-col a{display:block; font-size:13.5px; color:var(--muted); margin-bottom:10px; transition:color var(--motion-fast) var(--ease);}
   .footer-col a:hover{color:var(--paper);}
+  .social-icons{display:flex; gap:12px; flex-wrap:wrap; margin-top:2px;}
+  .social-icons a{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); color:var(--muted); transition:color var(--motion-fast) var(--ease), border-color var(--motion-fast) var(--ease), transform var(--motion-fast) var(--ease); margin-bottom:0;}
+  .social-icons a:hover{color:var(--paper); border-color:var(--paper); transform:translateY(-2px);}
+  .social-icons svg{width:17px; height:17px; fill:currentColor;}
   .newsletter-form{display:flex; border:1px solid var(--line); background:var(--ink); margin-top:4px;}
   .newsletter-form input{
     flex:1; background:none; border:none; color:var(--paper); padding:10px 12px; font-size:13px; font-family:'IBM Plex Sans',sans-serif; min-width:0;
@@ -1251,9 +1255,23 @@
         </div>
         <div class="footer-col">
           <h5>Connect</h5>
-          <a href="#">LinkedIn</a>
-          <a href="#">Instagram</a>
-          <a href="#">hello@scaleforgedigital.com</a>
+          <div class="social-icons">
+            <a href="https://instagram.com/brayosm4" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram: @brayosm4">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1.1.4 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.3-2.3.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.3 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.9-.3 1.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.9.3 1.9.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.9.3-1.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.9-.3-1.9-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 1.8a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4zm5.7-2a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@brayo_dev" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok: @brayo_dev">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+            </a>
+            <a href="https://t.me/BRAYOSM" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram: @BRAYOSM">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.6c.2-1-.7-1.7-1.6-1.3L2.6 10.3c-1 .4-1 1.9.1 2.2l4.4 1.4 1.7 5.4c.3.9 1.4 1.1 2 .4l2.4-2.6 4.5 3.3c.8.6 1.9.2 2.1-.8l3.1-14zM8.6 13.1l9-6.4c.3-.2.6.2.3.4l-7.4 7.1c-.3.3-.5.7-.5 1.1l-.2 2.4-1.2-4.6z"/></svg>
+            </a>
+            <a href="https://twitter.com/brayosm4" target="_blank" rel="noopener noreferrer" aria-label="Twitter" title="Twitter: @brayosm4">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.6L23.3 22h-6.9l-5.4-6.6L4.7 22H1.6l8.1-9.2L1 2h7.1l4.9 6.1L18.9 2zm-1.2 18h1.9L7.4 3.9H5.3L17.7 20z"/></svg>
+            </a>
+            <a href="mailto:brayosm4@gmail.com" aria-label="Email" title="brayosm4@gmail.com">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.3 5.5a1 1 0 0 0 1.2 0l7.3-5.5H4.2zM20 7.4l-7.1 5.3a2.5 2.5 0 0 1-3 0L4 7.4V18h16V7.4z"/></svg>
+            </a>
+          </div>
         </div>
         <div class="footer-col" style="min-width:220px;">
           <h5>Stay Updated with Digital Insights</h5>
