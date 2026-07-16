@@ -523,6 +523,93 @@
     cursor:pointer; transition:background var(--motion-fast) var(--ease); white-space:nowrap;
   }
   .newsletter-form button:hover{background:var(--ember);}
+
+  /* ---------- lead-gen popup ---------- */
+  .leadpopup-overlay{
+    position:fixed; inset:0; background:rgba(4,4,6,0.72); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+    display:flex; align-items:center; justify-content:center; z-index:999;
+    opacity:0; visibility:hidden; transition:opacity var(--motion-normal) var(--ease), visibility var(--motion-normal) var(--ease);
+    padding:20px;
+  }
+  .leadpopup-overlay.is-active{ opacity:1; visibility:visible; }
+  .leadpopup-card{
+    position:relative; width:100%; max-width:480px; max-height:88vh; overflow-y:auto;
+    background:linear-gradient(180deg, rgba(14,15,18,0.92), rgba(10,10,12,0.96));
+    border:1px solid rgba(255,255,255,0.09); border-radius:6px;
+    box-shadow:0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(74,133,232,0.06);
+    padding:34px 30px 28px; -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px);
+    transform:translateY(18px) scale(0.97); transition:transform var(--motion-normal) var(--ease);
+  }
+  .leadpopup-overlay.is-active .leadpopup-card{ transform:translateY(0) scale(1); }
+  .leadpopup-card::-webkit-scrollbar{ width:6px; }
+  .leadpopup-card::-webkit-scrollbar-thumb{ background:var(--line); border-radius:3px; }
+  .leadpopup-close{
+    position:absolute; top:14px; right:14px; width:32px; height:32px; border:1px solid var(--line); border-radius:50%;
+    background:rgba(255,255,255,0.02); color:var(--muted); font-size:16px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; transition:color var(--motion-fast) var(--ease), border-color var(--motion-fast) var(--ease), background var(--motion-fast) var(--ease);
+    z-index:2;
+  }
+  .leadpopup-close:hover, .leadpopup-close:focus-visible{ color:var(--paper); border-color:var(--blue); background:rgba(74,133,232,0.1); outline:none; }
+  .leadpopup-eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; }
+  .leadpopup-card h3{ font-family:'Space Grotesk',sans-serif; font-size:23px; font-weight:600; line-height:1.25; margin-bottom:10px; }
+  .leadpopup-card > div > p.leadpopup-sub{ font-size:13.5px; color:var(--muted); margin-bottom:22px; line-height:1.6; }
+  .leadpopup-form{ display:flex; flex-direction:column; gap:14px; }
+  .leadpopup-field{ display:flex; flex-direction:column; gap:6px; }
+  .leadpopup-field label{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted-2);
+  }
+  .leadpopup-field label .req{ color:var(--ember); }
+  .leadpopup-field input, .leadpopup-field select, .leadpopup-field textarea{
+    width:100%; padding:11px 13px; background:rgba(255,255,255,0.03); border:1px solid var(--line); color:var(--paper);
+    font-family:inherit; font-size:13.5px; border-radius:3px; transition:border-color var(--motion-fast) var(--ease);
+  }
+  .leadpopup-field select{ appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237d818a'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; }
+  .leadpopup-field textarea{ min-height:76px; resize:vertical; font-family:inherit; }
+  .leadpopup-field input:focus, .leadpopup-field select:focus, .leadpopup-field textarea:focus{ outline:none; border-color:var(--blue); background:rgba(74,133,232,0.05); }
+  .leadpopup-field input.has-error, .leadpopup-field select.has-error, .leadpopup-field textarea.has-error{ border-color:#e8544a; }
+  .leadpopup-field-error{ font-size:11px; color:#e8544a; display:none; }
+  .leadpopup-field-error.is-active{ display:block; }
+  .leadpopup-row2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:480px){ .leadpopup-row2{ grid-template-columns:1fr; } }
+  .leadpopup-actions{ display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+  .leadpopup-btn-primary{
+    padding:13px 14px; border:1px solid var(--ember); background:var(--ember); color:#0a0a0c; font-weight:600;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer;
+    border-radius:3px; transition:background var(--motion-fast) var(--ease), transform var(--motion-fast) var(--ease);
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .leadpopup-btn-primary:hover{ background:#f39366; }
+  .leadpopup-btn-primary:active{ transform:scale(0.98); }
+  .leadpopup-btn-primary:disabled{ opacity:0.75; cursor:default; transform:none; }
+  .leadpopup-btn-whatsapp{
+    padding:13px 14px; border:1px solid #2f7a4d; background:rgba(37,211,102,0.08); color:#3fd97a; font-weight:600;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer;
+    border-radius:3px; text-decoration:none; transition:background var(--motion-fast) var(--ease), transform var(--motion-fast) var(--ease);
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .leadpopup-btn-whatsapp:hover{ background:rgba(37,211,102,0.16); }
+  .leadpopup-btn-whatsapp:active{ transform:scale(0.98); }
+  .leadpopup-btn-whatsapp svg{ width:15px; height:15px; fill:currentColor; }
+  .leadpopup-spinner{
+    width:14px; height:14px; border:2px solid rgba(10,10,12,0.3); border-top-color:#0a0a0c; border-radius:50%;
+    animation:leadpopup-spin 0.7s linear infinite; display:none;
+  }
+  .leadpopup-btn-primary.is-loading .leadpopup-spinner{ display:inline-block; }
+  @keyframes leadpopup-spin{ to{ transform:rotate(360deg); } }
+  .leadpopup-note{ font-size:11px; color:var(--muted-2); margin-top:14px; margin-bottom:0; text-align:center; }
+  .leadpopup-success{ display:none; flex-direction:column; align-items:center; text-align:center; gap:10px; padding:16px 0; }
+  .leadpopup-success.is-active{ display:flex; }
+  .leadpopup-success .check-mark{
+    width:44px; height:44px; border:1px solid var(--blue); border-radius:50%; display:flex; align-items:center; justify-content:center;
+    color:var(--blue); font-size:20px; margin-bottom:4px;
+  }
+  .leadpopup-success h3{ font-size:19px; }
+  .leadpopup-success p{ font-size:13.5px; color:var(--muted); max-width:340px; }
+  @media (max-width:480px){
+    .leadpopup-card{ padding:28px 20px 22px; border-radius:4px; }
+    .leadpopup-card h3{ font-size:20px; }
+  }
+
   .footer-bottom{display:flex; justify-content:space-between; padding-top:24px; border-top:1px solid var(--line-soft); font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted-2); flex-wrap:wrap; gap:10px;}
   .footer-legal a{color:var(--muted-2); text-decoration:underline; text-underline-offset:2px; transition:color var(--motion-fast) var(--ease);}
   .footer-legal a:hover{color:var(--blue);}
@@ -1443,6 +1530,102 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
+<!-- LEAD-GEN POPUP -->
+<div class="leadpopup-overlay" id="leadpopupOverlay" role="dialog" aria-modal="true" aria-labelledby="leadpopupHeadline">
+  <div class="leadpopup-card">
+    <button type="button" class="leadpopup-close" id="leadpopupClose" aria-label="Close popup">✕</button>
+    <div id="leadpopupFormWrap">
+      <p class="leadpopup-eyebrow mono">FREE CONSULTATION</p>
+      <h3 id="leadpopupHeadline">Let's Grow Your Business Online</h3>
+      <p class="leadpopup-sub">Need a high-converting website or digital solution? Tell us about your project, and we'll get back to you with a customized strategy.</p>
+
+      <form class="leadpopup-form" id="leadpopupForm" novalidate>
+        <input type="hidden" name="_subject" value="New consultation request — ScaleForge Digital">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
+        <div class="leadpopup-field">
+          <label for="lpName">Full Name <span class="req">*</span></label>
+          <input type="text" id="lpName" name="name" placeholder="Jordan Ade" required aria-required="true">
+          <span class="leadpopup-field-error" id="lpNameError">Please enter your full name.</span>
+        </div>
+
+        <div class="leadpopup-field">
+          <label for="lpBusiness">Business Name <span class="mono" style="text-transform:none; letter-spacing:0; color:var(--muted-2);">(optional)</span></label>
+          <input type="text" id="lpBusiness" name="business" placeholder="Your business name">
+        </div>
+
+        <div class="leadpopup-row2">
+          <div class="leadpopup-field">
+            <label for="lpEmail">Email Address <span class="req">*</span></label>
+            <input type="email" id="lpEmail" name="email" placeholder="you@company.com" required aria-required="true">
+            <span class="leadpopup-field-error" id="lpEmailError">Please enter a valid email.</span>
+          </div>
+          <div class="leadpopup-field">
+            <label for="lpPhone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="lpPhone" name="phone" placeholder="+234 800 000 0000" required aria-required="true">
+            <span class="leadpopup-field-error" id="lpPhoneError">Please enter a valid phone number.</span>
+          </div>
+        </div>
+
+        <div class="leadpopup-field">
+          <label for="lpService">Service Needed <span class="req">*</span></label>
+          <select id="lpService" name="service" required aria-required="true">
+            <option value="">Select a service…</option>
+            <option>Website Design</option>
+            <option>Website Development</option>
+            <option>E-commerce Website</option>
+            <option>Shopify</option>
+            <option>WordPress</option>
+            <option>SEO</option>
+            <option>Branding</option>
+            <option>Digital Marketing</option>
+            <option>Other</option>
+          </select>
+          <span class="leadpopup-field-error" id="lpServiceError">Please select a service.</span>
+        </div>
+
+        <div class="leadpopup-field">
+          <label for="lpBudget">Project Budget</label>
+          <select id="lpBudget" name="budget">
+            <option value="">Select a range…</option>
+            <option>Under $500</option>
+            <option>$500–$1,000</option>
+            <option>$1,000–$3,000</option>
+            <option>$3,000+</option>
+          </select>
+        </div>
+
+        <div class="leadpopup-field">
+          <label for="lpDetails">Project Description</label>
+          <textarea id="lpDetails" name="details" placeholder="Tell us a bit about what you need…"></textarea>
+        </div>
+
+        <div class="leadpopup-actions">
+          <button type="submit" class="leadpopup-btn-primary" id="lpSubmitBtn">
+            <span class="leadpopup-spinner" aria-hidden="true"></span>
+            <span id="lpSubmitBtnLabel">Get My Free Consultation</span>
+          </button>
+          <a class="leadpopup-btn-whatsapp" id="lpWhatsappBtn"
+             href="https://wa.me/2348100337011?text=Hello%20ScaleForge%20Digital!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20my%20project."
+             target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.23h.01c5.5 0 9.96-4.46 9.96-9.96C22 6.46 17.54 2 12.04 2zm0 18.2h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.09.81.82-3.01-.19-.31a8.2 8.2 0 0 1-1.26-4.4c0-4.55 3.7-8.25 8.25-8.25 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.71 8.24-8.27 8.24zm4.52-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.79.96-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.72 2.63 4.17 3.69.58.25 1.04.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+        <p class="leadpopup-note" id="lpSubmitError" style="display:none; color:#e8544a;">Something went wrong sending your details — please try again, or use WhatsApp below.</p>
+        <p class="leadpopup-note">We reply within one business day. Your details are kept confidential.</p>
+      </form>
+    </div>
+
+    <div class="leadpopup-success" id="leadpopupSuccess">
+      <div class="check-mark">✓</div>
+      <h3>Thanks — we've got it.</h3>
+      <p>We've received your project details and will follow up within one business day with a customized strategy.</p>
+    </div>
+  </div>
+</div>
+
 <script>
   // draw-in animation for hero forge line, respecting reduced motion
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1631,6 +1814,134 @@
       });
     });
   }
+
+  // ---------- lead-gen popup ----------
+  (function(){
+    const overlay = document.getElementById('leadpopupOverlay');
+    const closeBtn = document.getElementById('leadpopupClose');
+    const form = document.getElementById('leadpopupForm');
+    const formWrap = document.getElementById('leadpopupFormWrap');
+    const success = document.getElementById('leadpopupSuccess');
+    const submitBtn = document.getElementById('lpSubmitBtn');
+    const submitBtnLabel = document.getElementById('lpSubmitBtnLabel');
+    const submitError = document.getElementById('lpSubmitError');
+    if(!overlay || !form) return;
+
+    const STORAGE_KEY = 'sfd-leadpopup-lastshown';
+    const COOLDOWN_MS = 24 * 60 * 60 * 1000; // 24 hours
+    let hasShown = false;
+    let lastFocused = null;
+
+    function withinCooldown(){
+      const last = localStorage.getItem(STORAGE_KEY);
+      if(!last) return false;
+      return (Date.now() - Number(last)) < COOLDOWN_MS;
+    }
+
+    function openPopup(){
+      if(hasShown || withinCooldown()) return;
+      hasShown = true;
+      lastFocused = document.activeElement;
+      overlay.classList.add('is-active');
+      localStorage.setItem(STORAGE_KEY, String(Date.now()));
+      setTimeout(()=>{ closeBtn.focus(); }, 50);
+    }
+
+    function closePopup(){
+      overlay.classList.remove('is-active');
+      if(lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    if(!withinCooldown()){
+      openPopup();
+    }
+
+    closeBtn.addEventListener('click', closePopup);
+    overlay.addEventListener('click', (e)=>{
+      if(e.target === overlay) closePopup();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && overlay.classList.contains('is-active')) closePopup();
+    });
+
+    // ---- validation ----
+    const fields = {
+      name:  { el: document.getElementById('lpName'),  err: document.getElementById('lpNameError') },
+      email: { el: document.getElementById('lpEmail'), err: document.getElementById('lpEmailError') },
+      phone: { el: document.getElementById('lpPhone'), err: document.getElementById('lpPhoneError') },
+      service: { el: document.getElementById('lpService'), err: document.getElementById('lpServiceError') }
+    };
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[+\d][\d\s().-]{6,}$/;
+
+    function setFieldError(key, show){
+      const f = fields[key];
+      f.el.classList.toggle('has-error', show);
+      f.err.classList.toggle('is-active', show);
+    }
+
+    function validate(){
+      let valid = true;
+      if(!fields.name.el.value.trim()){ setFieldError('name', true); valid = false; }
+      else setFieldError('name', false);
+
+      if(!emailRegex.test(fields.email.el.value.trim())){ setFieldError('email', true); valid = false; }
+      else setFieldError('email', false);
+
+      if(!phoneRegex.test(fields.phone.el.value.trim())){ setFieldError('phone', true); valid = false; }
+      else setFieldError('phone', false);
+
+      if(!fields.service.el.value){ setFieldError('service', true); valid = false; }
+      else setFieldError('service', false);
+
+      return valid;
+    }
+
+    Object.keys(fields).forEach(key=>{
+      fields[key].el.addEventListener('input', ()=> setFieldError(key, false));
+      fields[key].el.addEventListener('change', ()=> setFieldError(key, false));
+    });
+
+    // ---- submit ----
+    // Currently posts to FormSubmit (no backend needed). To switch providers later
+    // (Formspree, Netlify Forms, EmailJS, custom API), just change the fetch URL
+    // and, if needed, how the response is parsed below — the form fields and
+    // validation logic don't need to change.
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      submitError.style.display = 'none';
+
+      if(!validate()){
+        const firstInvalid = form.querySelector('.has-error');
+        if(firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-loading');
+      submitBtnLabel.textContent = 'Sending…';
+
+      const formData = new FormData(form);
+
+      fetch('https://formsubmit.co/ajax/brayosm4@gmail.com', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(res => res.json())
+      .then(()=>{
+        formWrap.style.display = 'none';
+        success.classList.add('is-active');
+        setTimeout(()=>{ closeBtn.focus(); }, 50);
+      })
+      .catch(()=>{
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('is-loading');
+        submitBtnLabel.textContent = 'Get My Free Consultation';
+        submitError.style.display = 'block';
+      });
+    });
+  })();
 
   // ---------- dark/light theme toggle ----------
   (function(){
