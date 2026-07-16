@@ -1222,6 +1222,9 @@
         </ul>
       </div>
       <form class="inquiry" id="projectForm" novalidate>
+        <input type="hidden" name="_subject" value="New project inquiry — ScaleForge Digital">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <span class="corner-bracket tl"></span><span class="corner-bracket br"></span>
 
         <div class="step-progress">
@@ -1236,15 +1239,15 @@
         <div class="form-step is-active" data-step="1">
           <div class="field">
             <label for="name">Name</label>
-            <input id="name" type="text" placeholder="Jordan Ade" required>
+            <input id="name" name="name" type="text" placeholder="Jordan Ade" required>
           </div>
           <div class="field">
             <label for="company">Company name</label>
-            <input id="company" type="text" placeholder="Your business name">
+            <input id="company" name="company" type="text" placeholder="Your business name">
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="jordan@company.com" required>
+            <input id="email" name="email" type="email" placeholder="jordan@company.com" required>
           </div>
           <div class="step-nav">
             <button type="button" class="btn btn-primary" data-next>Continue →</button>
@@ -1256,18 +1259,18 @@
           <div class="field">
             <label>What can we help you with? (select any)</label>
             <div class="checkbox-grid" id="serviceChips">
-              <label class="checkbox-chip"><input type="checkbox" value="Brand &amp; Creative Strategy">Brand &amp; Creative</label>
-              <label class="checkbox-chip"><input type="checkbox" value="Digital Storefront &amp; Commerce">Storefront &amp; Commerce</label>
-              <label class="checkbox-chip"><input type="checkbox" value="Growth Marketing &amp; Visibility">Growth Marketing</label>
-              <label class="checkbox-chip"><input type="checkbox" value="Digital Systems &amp; Automation">Automation</label>
-              <label class="checkbox-chip"><input type="checkbox" value="Video &amp; Creative Production">Video Production</label>
-              <label class="checkbox-chip"><input type="checkbox" value="Publishing Solutions">Publishing</label>
-              <label class="checkbox-chip"><input type="checkbox" value="Not sure yet">Not sure yet</label>
+              <label class="checkbox-chip"><input type="checkbox" name="services" value="Brand &amp; Creative Strategy">Brand &amp; Creative</label>
+              <label class="checkbox-chip"><input type="checkbox" name="services" value="Digital Storefront &amp; Commerce">Storefront &amp; Commerce</label>
+              <label class="checkbox-chip"><input type="checkbox" name="services" value="Growth Marketing &amp; Visibility">Growth Marketing</label>
+              <label class="checkbox-chip"><input type="checkbox" name="services" value="Digital Systems &amp; Automation">Automation</label>
+              <label class="checkbox-chip"><input type="checkbox" name="services" value="Video &amp; Creative Production">Video Production</label>
+              <label class="checkbox-chip"><input type="checkbox" name="services" value="Publishing Solutions">Publishing</label>
+              <label class="checkbox-chip"><input type="checkbox" name="services" value="Not sure yet">Not sure yet</label>
             </div>
           </div>
           <div class="field">
             <label for="budget">Budget range</label>
-            <select id="budget">
+            <select id="budget" name="budget">
               <option>Under $500</option>
               <option>$500 – $1,500</option>
               <option>$1,500 – $5,000</option>
@@ -1278,7 +1281,7 @@
           </div>
           <div class="field">
             <label for="timeline">Timeline</label>
-            <select id="timeline">
+            <select id="timeline" name="timeline">
               <option>As soon as possible</option>
               <option>Within 1 month</option>
               <option>Within 3 months</option>
@@ -1295,15 +1298,15 @@
         <div class="form-step" data-step="3">
           <div class="field">
             <label for="website">Do you have a website? (optional URL)</label>
-            <input id="website" type="text" placeholder="yourbusiness.com">
+            <input id="website" name="website" type="text" placeholder="yourbusiness.com">
           </div>
           <div class="field">
             <label for="details">Tell us about your project</label>
-            <textarea id="details" placeholder="Goals, current challenges, desired outcomes — whatever's useful context."></textarea>
+            <textarea id="details" name="details" placeholder="Goals, current challenges, desired outcomes — whatever's useful context."></textarea>
           </div>
           <div class="field">
             <label for="fileUpload">Attach files (optional)</label>
-            <input id="fileUpload" type="file" style="padding:8px 0;">
+            <input id="fileUpload" name="attachment" type="file" style="padding:8px 0;">
           </div>
           <div class="step-nav">
             <button type="button" class="btn btn-ghost" data-back>← Back</button>
@@ -1319,7 +1322,9 @@
           </div>
           <div class="step-nav">
             <button type="button" class="btn btn-ghost" data-back>← Back</button>
-            <button type="submit" class="btn btn-primary">Send My Project Details</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Send My Project Details</button>
+          </div>
+          <div class="field" id="formError" style="display:none; color:#e8544a; font-size:13px;">
           </div>
         </div>
 
@@ -1563,10 +1568,33 @@
 
     projectForm.addEventListener('submit', (e)=>{
       e.preventDefault();
-      steps.forEach(s => s.classList.remove('is-active'));
-      document.querySelector('.step-progress').style.display = 'none';
-      stepLabelEl.style.display = 'none';
-      document.getElementById('formSuccess').classList.add('is-active');
+      const submitBtn = document.getElementById('submitBtn');
+      const errorBox = document.getElementById('formError');
+      errorBox.style.display = 'none';
+      errorBox.textContent = '';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      const formData = new FormData(projectForm);
+
+      fetch('https://formsubmit.co/ajax/brayosm4@gmail.com', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(res => res.json())
+      .then(data => {
+        steps.forEach(s => s.classList.remove('is-active'));
+        document.querySelector('.step-progress').style.display = 'none';
+        stepLabelEl.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('is-active');
+      })
+      .catch(err => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send My Project Details';
+        errorBox.textContent = "Something went wrong sending your details — please try again, or email us directly.";
+        errorBox.style.display = 'block';
+      });
     });
   }
 
