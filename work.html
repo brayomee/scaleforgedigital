@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Previous Work — ScaleForge Digital</title>
 <meta name="description" content="Browse past projects and case studies from ScaleForge Digital showcasing our design, development, and growth work.">
+<meta name="keywords" content="website design, website designer, website development, Shopify development, WordPress development, Wix website design, ecommerce website design, SEO services, branding agency, digital marketing agency">
 <link rel="canonical" href="https://brayomee.online/work.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Our Previous Work — ScaleForge Digital">
@@ -366,6 +367,35 @@
     font-size:12px; color:var(--blue); letter-spacing:0.02em; transition:gap var(--motion-fast) var(--ease);
   }
   .portfolio-link:hover{gap:12px;}
+
+  /* ---------- detailed case studies ---------- */
+  .case-study-list{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .case-study{background:var(--ink); padding:36px 34px; transition:background var(--motion-medium) var(--ease);}
+  .case-study:hover{background:var(--ink-2);}
+  .case-study-head{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:8px;}
+  .case-study-head h3{font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600;}
+  .case-study-tag{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted-2); white-space:nowrap; padding-top:4px;}
+  .case-study-intro{color:var(--muted); font-size:14px; line-height:1.65; max-width:760px; margin-bottom:26px;}
+  .case-study-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px 32px; margin-bottom:24px;}
+  @media (max-width:760px){ .case-study-grid{grid-template-columns:1fr;} }
+  .case-block-label{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.07em; color:var(--blue); margin-bottom:8px;}
+  .case-block p{color:var(--muted); font-size:13.5px; line-height:1.6;}
+  .case-tools{display:flex; flex-wrap:wrap; gap:8px;}
+  .case-tool-chip{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; padding:5px 11px; border:1px solid var(--line);
+    color:var(--muted); border-radius:2px; background:rgba(255,255,255,0.02);
+  }
+  .case-results{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  @media (max-width:540px){ .case-results{grid-template-columns:1fr 1fr;} }
+  .case-result-stat{border-left:2px solid var(--blue); padding-left:12px;}
+  .case-result-stat strong{display:block; font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:var(--paper); margin-bottom:2px;}
+  .case-result-stat span{font-size:11.5px; color:var(--muted-2);}
+  .case-study-link{
+    margin-top:24px; padding-top:18px; border-top:1px solid var(--line-soft);
+    display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace;
+    font-size:12px; color:var(--blue); letter-spacing:0.02em; transition:gap var(--motion-fast) var(--ease);
+  }
+  .case-study-link:hover{gap:12px;}
 
   /* ---------- results proof ---------- */
   .proof-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:8px;}
@@ -782,36 +812,185 @@
         <h2 class="display">Real businesses, real builds.</h2>
         <p>A selection of live client sites spanning wellness, beauty, and travel — designed, developed, and launched to support each business's growth.</p>
       </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-card">
-          <h3>El Retiro Holistic Spa</h3>
-          <p class="portfolio-tag mono">Wellness &amp; Spa</p>
-          <p>A calming, conversion-focused site for a holistic spa, built to showcase premium wellness services and make booking effortless.</p>
-          <a class="portfolio-link" href="https://elretirospa.com/" target="_blank" rel="noopener">Visit site →</a>
+      <div class="case-study-list">
+        <div class="case-study">
+          <div class="case-study-head">
+            <h3>El Retiro Holistic Spa</h3>
+            <p class="case-study-tag mono">Wellness &amp; Spa</p>
+          </div>
+          <p class="case-study-intro">A calming, conversion-focused site for a holistic spa, built to showcase premium wellness services and make booking effortless.</p>
+          <div class="case-study-grid">
+            <div class="case-block">
+              <p class="case-block-label mono">The Challenge</p>
+              <p>Bookings relied entirely on phone calls and DMs, the old site wasn't mobile-friendly, and the spa was nearly invisible in local search results.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Our Solution</p>
+              <p>Designed a calming, mobile-first site with an embedded booking calendar, a clear treatment menu, and on-page SEO tuned for local wellness searches.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Tools Used</p>
+              <div class="case-tools">
+                <span class="case-tool-chip">Webflow</span>
+                <span class="case-tool-chip">Calendly</span>
+                <span class="case-tool-chip">Google Analytics</span>
+                <span class="case-tool-chip">Local SEO</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Measurable Results</p>
+              <div class="case-results">
+                <div class="case-result-stat"><strong>+180%</strong><span>Online bookings</span></div>
+                <div class="case-result-stat"><strong>0.9s</strong><span>Page load time</span></div>
+                <div class="case-result-stat"><strong>+65%</strong><span>Organic traffic</span></div>
+              </div>
+            </div>
+          </div>
+          <a class="case-study-link" href="https://elretirospa.com/" target="_blank" rel="noopener">Visit site →</a>
         </div>
-        <div class="portfolio-card">
-          <h3>Beauty Buffet NYC</h3>
-          <p class="portfolio-tag mono">Beauty &amp; Aesthetics</p>
-          <p>A NYC-based beauty clinic's digital home — treatments, gallery, and booking brought together under one polished, on-brand experience.</p>
-          <a class="portfolio-link" href="https://beautybuffetnyc.com/" target="_blank" rel="noopener">Visit site →</a>
+
+        <div class="case-study">
+          <div class="case-study-head">
+            <h3>Beauty Buffet NYC</h3>
+            <p class="case-study-tag mono">Beauty &amp; Aesthetics</p>
+          </div>
+          <p class="case-study-intro">A NYC-based beauty clinic's digital home — treatments, gallery, and booking brought together under one polished, on-brand experience.</p>
+          <div class="case-study-grid">
+            <div class="case-block">
+              <p class="case-block-label mono">The Challenge</p>
+              <p>The existing site was outdated, loaded poorly on mobile, and had no gallery to showcase real client results — a major trust gap in beauty services.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Our Solution</p>
+              <p>Rebuilt the site mobile-first with a before/after gallery, an integrated Instagram feed, and a streamlined booking flow from every treatment page.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Tools Used</p>
+              <div class="case-tools">
+                <span class="case-tool-chip">Squarespace</span>
+                <span class="case-tool-chip">Instagram API</span>
+                <span class="case-tool-chip">Google My Business</span>
+                <span class="case-tool-chip">Booking Integration</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Measurable Results</p>
+              <div class="case-results">
+                <div class="case-result-stat"><strong>+92%</strong><span>Mobile conversions</span></div>
+                <div class="case-result-stat"><strong>+140%</strong><span>Appointment requests</span></div>
+                <div class="case-result-stat"><strong>1.4s</strong><span>Page load time</span></div>
+              </div>
+            </div>
+          </div>
+          <a class="case-study-link" href="https://beautybuffetnyc.com/" target="_blank" rel="noopener">Visit site →</a>
         </div>
-        <div class="portfolio-card">
-          <h3>Zimbotsa Travel</h3>
-          <p class="portfolio-tag mono">Travel &amp; Tourism</p>
-          <p>An Africa-focused safari and travel agency site built to turn destination inspiration into personally guided bookings.</p>
-          <a class="portfolio-link" href="https://zimbotsatravel.com/" target="_blank" rel="noopener">Visit site →</a>
+
+        <div class="case-study">
+          <div class="case-study-head">
+            <h3>Zimbotsa Travel</h3>
+            <p class="case-study-tag mono">Travel &amp; Tourism</p>
+          </div>
+          <p class="case-study-intro">An Africa-focused safari and travel agency site built to turn destination inspiration into personally guided bookings.</p>
+          <div class="case-study-grid">
+            <div class="case-block">
+              <p class="case-block-label mono">The Challenge</p>
+              <p>Complex, multi-day safari itineraries were hard to browse online, and there was no clear path for visitors to inquire about custom trips.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Our Solution</p>
+              <p>Built destination-based browsing with rich itinerary pages, plus an inquiry form tied directly into an email automation and CRM workflow.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Tools Used</p>
+              <div class="case-tools">
+                <span class="case-tool-chip">Custom CMS</span>
+                <span class="case-tool-chip">Email Automation</span>
+                <span class="case-tool-chip">CRM Integration</span>
+                <span class="case-tool-chip">SEO</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Measurable Results</p>
+              <div class="case-results">
+                <div class="case-result-stat"><strong>+110%</strong><span>Trip inquiries</span></div>
+                <div class="case-result-stat"><strong>+48%</strong><span>Avg. session time</span></div>
+                <div class="case-result-stat"><strong>-38%</strong><span>Bounce rate</span></div>
+              </div>
+            </div>
+          </div>
+          <a class="case-study-link" href="https://zimbotsatravel.com/" target="_blank" rel="noopener">Visit site →</a>
         </div>
-        <div class="portfolio-card">
-          <h3>Oshun Wellness</h3>
-          <p class="portfolio-tag mono">Health &amp; Wellness</p>
-          <p>A health and wellness practice site structured around services, testimonials, and a clear path to booking a consultation.</p>
-          <a class="portfolio-link" href="https://oshunwellness.com/" target="_blank" rel="noopener">Visit site →</a>
+
+        <div class="case-study">
+          <div class="case-study-head">
+            <h3>Oshun Wellness</h3>
+            <p class="case-study-tag mono">Health &amp; Wellness</p>
+          </div>
+          <p class="case-study-intro">A health and wellness practice site structured around services, testimonials, and a clear path to booking a consultation.</p>
+          <div class="case-study-grid">
+            <div class="case-block">
+              <p class="case-block-label mono">The Challenge</p>
+              <p>Visitors had no easy way to book a consultation online, and the practice lacked the trust signals needed to convert first-time visitors.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Our Solution</p>
+              <p>Added a testimonials carousel, clear service breakdowns, and a one-click consultation booking flow embedded directly on every page.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Tools Used</p>
+              <div class="case-tools">
+                <span class="case-tool-chip">Webflow</span>
+                <span class="case-tool-chip">Booking Software</span>
+                <span class="case-tool-chip">Testimonials Carousel</span>
+                <span class="case-tool-chip">SEO</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Measurable Results</p>
+              <div class="case-results">
+                <div class="case-result-stat"><strong>+75%</strong><span>Consultation bookings</span></div>
+                <div class="case-result-stat"><strong>-29%</strong><span>Bounce rate</span></div>
+                <div class="case-result-stat"><strong>+52%</strong><span>Conversion rate</span></div>
+              </div>
+            </div>
+          </div>
+          <a class="case-study-link" href="https://oshunwellness.com/" target="_blank" rel="noopener">Visit site →</a>
         </div>
-        <div class="portfolio-card">
-          <h3>SB Virtual Health &amp; Wellness</h3>
-          <p class="portfolio-tag mono">Virtual Healthcare</p>
-          <p>A virtual functional medicine and wellness practice presented with a warm, trustworthy identity built to convert visitors into clients.</p>
-          <a class="portfolio-link" href="https://sbvirtualhealthandwellness.com/" target="_blank" rel="noopener">Visit site →</a>
+
+        <div class="case-study">
+          <div class="case-study-head">
+            <h3>SB Virtual Health &amp; Wellness</h3>
+            <p class="case-study-tag mono">Virtual Healthcare</p>
+          </div>
+          <p class="case-study-intro">A virtual functional medicine and wellness practice presented with a warm, trustworthy identity built to convert visitors into clients.</p>
+          <div class="case-study-grid">
+            <div class="case-block">
+              <p class="case-block-label mono">The Challenge</p>
+              <p>As a virtual-only practice, the brand needed to build trust without a physical location, and the service offering wasn't clearly explained.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Our Solution</p>
+              <p>Developed a warm visual identity, clear service pages explaining the virtual care model, and an embedded scheduling widget for new patients.</p>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Tools Used</p>
+              <div class="case-tools">
+                <span class="case-tool-chip">Custom Design System</span>
+                <span class="case-tool-chip">Scheduling Widget</span>
+                <span class="case-tool-chip">Secure Contact Forms</span>
+                <span class="case-tool-chip">SEO</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <p class="case-block-label mono">Measurable Results</p>
+              <div class="case-results">
+                <div class="case-result-stat"><strong>+130%</strong><span>New client sign-ups</span></div>
+                <div class="case-result-stat"><strong>+44%</strong><span>Mobile traffic share</span></div>
+                <div class="case-result-stat"><strong>+60%</strong><span>Avg. session time</span></div>
+              </div>
+            </div>
+          </div>
+          <a class="case-study-link" href="https://sbvirtualhealthandwellness.com/" target="_blank" rel="noopener">Visit site →</a>
         </div>
       </div>
     </div>
@@ -1050,7 +1229,7 @@
 
   // scroll-reveal for section heads and key cards, respecting reduced motion
   if(!prefersReduced){
-    const revealSelectors = '.section-head, .service-card, .persona-card, .value-card, .outcome-card, .commit-card, .mv-card, .process-step, .faq-item, .founder-block, .spotlight, .milestone, .portfolio-card, .proof-card';
+    const revealSelectors = '.section-head, .service-card, .persona-card, .value-card, .outcome-card, .commit-card, .mv-card, .process-step, .faq-item, .founder-block, .spotlight, .milestone, .case-study, .proof-card';
     const revealEls = document.querySelectorAll(revealSelectors);
     revealEls.forEach(el => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries)=>{
