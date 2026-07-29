@@ -389,7 +389,25 @@
   }
   .portfolio-link:hover{gap:12px;}
 
-  /* ---------- outcomes ---------- */
+  /* ---------- blog teaser ---------- */
+  .blog-teaser-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:960px){ .blog-teaser-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .blog-teaser-grid{grid-template-columns:1fr;} }
+  .blog-teaser-card{
+    position:relative; background:var(--ink); padding:30px 26px; display:flex; flex-direction:column;
+    transition:background var(--motion-medium) var(--ease);
+  }
+  .blog-teaser-card:hover{background:var(--ink-2);}
+  .blog-teaser-date{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--blue); margin-bottom:14px;}
+  .blog-teaser-card h3{font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin-bottom:10px;}
+  .blog-teaser-card p{color:var(--muted); font-size:13.5px; line-height:1.6; flex-grow:1;}
+  .blog-teaser-link{
+    margin-top:18px; padding-top:14px; border-top:1px solid var(--line-soft);
+    display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace;
+    font-size:12px; color:var(--blue); letter-spacing:0.02em; transition:gap var(--motion-fast) var(--ease);
+  }
+  .blog-teaser-link:hover{gap:12px;}
+  .blog-view-all{ text-align:center; margin-top:28px; }
   .outcome-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
   @media (max-width:900px){ .outcome-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:520px){ .outcome-grid{grid-template-columns:1fr;} }
@@ -773,6 +791,7 @@
       <a href="work.html">Our Previous Work</a>
       <a href="results.html">Results</a>
       <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-cta">
@@ -1234,6 +1253,28 @@
     </div>
   </section>
 
+  <!-- LATEST FROM THE BLOG -->
+  <section id="blog-teaser">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow mono">FROM THE BLOG</p>
+        <h2 class="display">Latest insights.</h2>
+        <p>Notes on branding, storefronts, SEO, and digital growth — updated regularly.</p>
+      </div>
+      <div class="blog-teaser-grid" id="blogTeaserGrid">
+        <div class="blog-teaser-card">
+          <p class="blog-teaser-date">Jul 29, 2026</p>
+          <h3>Welcome to the ScaleForge Digital Blog</h3>
+          <p>We're kicking things off — here's what to expect from the blog going forward.</p>
+          <a class="blog-teaser-link" href="welcome-to-the-blog.html">Read more →</a>
+        </div>
+      </div>
+      <div class="blog-view-all">
+        <a href="blog.html" class="btn btn-ghost">View all posts →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- COMMITMENTS -->
   <section id="promise">
     <div class="wrap">
@@ -1527,6 +1568,7 @@
           <a href="process.html">Process</a>
           <a href="results.html">Results</a>
           <a href="faq.html">FAQ</a>
+          <a href="blog.html">Blog</a>
           <a href="contact.html">Contact</a>
           <a href="privacy-policy.html">Privacy Policy</a>
         </div>
@@ -1701,7 +1743,7 @@
 
   // scroll-reveal for section heads and key cards, respecting reduced motion
   if(!prefersReduced){
-    const revealSelectors = '.section-head, .service-card, .persona-card, .value-card, .outcome-card, .commit-card, .mv-card, .process-step, .faq-item, .founder-block, .spotlight, .milestone, .portfolio-card';
+    const revealSelectors = '.section-head, .service-card, .persona-card, .value-card, .outcome-card, .commit-card, .mv-card, .process-step, .faq-item, .founder-block, .spotlight, .milestone, .portfolio-card, .blog-teaser-card';
     const revealEls = document.querySelectorAll(revealSelectors);
     revealEls.forEach(el => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries)=>{
