@@ -390,8 +390,7 @@
   .portfolio-link:hover{gap:12px;}
 
   /* ---------- blog teaser ---------- */
-  .blog-teaser-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
-  @media (max-width:960px){ .blog-teaser-grid{grid-template-columns:repeat(2,1fr);} }
+  .blog-teaser-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1px; background:var(--line); border:1px solid var(--line);}
   @media (max-width:640px){ .blog-teaser-grid{grid-template-columns:1fr;} }
   .blog-teaser-card{
     position:relative; background:var(--ink); padding:30px 26px; display:flex; flex-direction:column;
@@ -728,6 +727,28 @@
   .testimonial-meta{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-top:6px;}
   .testimonial-date{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--muted-2); letter-spacing:0.03em; white-space:nowrap;}
 
+  /* ---------- brand reviews ---------- */
+  .review-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  @media (max-width:960px){ .review-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .review-grid{grid-template-columns:1fr; max-width:420px; margin:0 auto;} }
+  .review-card{
+    border:1px solid var(--line); padding:26px 24px; background:var(--surface); display:flex; flex-direction:column;
+    transition:transform var(--motion-medium) var(--ease), border-color var(--motion-medium) var(--ease);
+  }
+  .review-card:hover{transform:translateY(-3px); border-color:var(--blue-dim);}
+  .review-logo{
+    width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px; color:#0a0a0c; margin-bottom:14px;
+  }
+  .review-logo.c1{background:var(--blue);}
+  .review-logo.c2{background:var(--ember);}
+  .review-logo.c3{background:#4ac9a0;}
+  .review-stars{color:var(--blue); font-size:13px; letter-spacing:2px; margin-bottom:10px;}
+  .review-quote{font-size:13.5px; color:var(--muted); line-height:1.65; flex-grow:1; margin-bottom:16px;}
+  .review-brand{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper); text-transform:uppercase; letter-spacing:0.04em;}
+  .review-more{text-align:center; margin-top:32px;}
+  body.light-theme .review-card{ background:var(--surface-2); }
+
   /* ---------- theme toggle ---------- */
   .theme-toggle{
     display:inline-flex; align-items:center; justify-content:center;
@@ -792,6 +813,7 @@
       <a href="results.html">Results</a>
       <a href="faq.html">FAQ</a>
       <a href="blog.html">Blog</a>
+      <a href="reviews.html">Reviews</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-cta">
@@ -1188,47 +1210,34 @@
         <h2 class="display">Don't take our word for it.</h2>
         <p>A few words from the businesses we've built with.</p>
       </div>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</p>
-          <p class="testimonial-quote">"They didn't just build us a website — they understood our business and built a system that actually brings in bookings."</p>
-          <div class="testimonial-meta">
-            <p class="testimonial-author mono">— Amara Johnson, Wellness &amp; Spa Client</p>
-            <p class="testimonial-date">Mar 2026</p>
-          </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="review-logo c1">MR</div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <p class="review-quote">"ScaleForge Digital transformed our online store into a modern, user-friendly shopping experience. The attention to detail and professionalism throughout the project exceeded our expectations."</p>
+          <p class="review-brand">Michael R. — eCommerce Store Owner</p>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</p>
-          <p class="testimonial-quote">"Fast, professional, and genuinely invested in our growth. The communication throughout was transparent from day one."</p>
-          <div class="testimonial-meta">
-            <p class="testimonial-author mono">— Daniel Okafor, Beauty &amp; Aesthetics Client</p>
-            <p class="testimonial-date">Jan 2026</p>
-          </div>
+        <div class="review-card">
+          <div class="review-logo c2">SJ</div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <p class="review-quote">"From branding to website development, the team delivered exactly what we needed. Communication was excellent, and the final result truly reflects our brand."</p>
+          <p class="review-brand">Sarah J. — Fashion Brand Founder</p>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</p>
-          <p class="testimonial-quote">"We came in with a vague idea and left with a clear strategy and a site that finally reflects the quality of what we do."</p>
-          <div class="testimonial-meta">
-            <p class="testimonial-author mono">— Priya Nair, Travel &amp; Tourism Client</p>
-            <p class="testimonial-date">Nov 2025</p>
-          </div>
+        <div class="review-card">
+          <div class="review-logo c3">DK</div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <p class="review-quote">"Working with ScaleForge Digital was seamless from start to finish. They took the time to understand our business goals and provided practical digital solutions."</p>
+          <p class="review-brand">David K. — Small Business Owner</p>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</p>
-          <p class="testimonial-quote">"Every deliverable landed on time and on brief. It's rare to find a team that treats your business like their own."</p>
-          <div class="testimonial-meta">
-            <p class="testimonial-author mono">— Tunde Bakare, eCommerce Client</p>
-            <p class="testimonial-date">Sep 2025</p>
-          </div>
+        <div class="review-card">
+          <div class="review-logo c1">ET</div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <p class="review-quote">"The website redesign gave our business a fresh, professional look. Our customers now enjoy a much better browsing experience."</p>
+          <p class="review-brand">Emily T. — Beauty Brand</p>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</p>
-          <p class="testimonial-quote">"They asked better questions than we were asking ourselves. The final result outperformed everything we'd tried before."</p>
-          <div class="testimonial-meta">
-            <p class="testimonial-author mono">— Chiamaka Eze, Coaching &amp; Consulting Client</p>
-            <p class="testimonial-date">Jul 2025</p>
-          </div>
-        </div>
+      </div>
+      <div class="review-more">
+        <a href="reviews.html" class="btn btn-ghost">Read More Reviews →</a>
       </div>
     </div>
   </section>
@@ -1569,6 +1578,7 @@
           <a href="results.html">Results</a>
           <a href="faq.html">FAQ</a>
           <a href="blog.html">Blog</a>
+          <a href="reviews.html">Reviews</a>
           <a href="contact.html">Contact</a>
           <a href="privacy-policy.html">Privacy Policy</a>
         </div>
@@ -1743,7 +1753,7 @@
 
   // scroll-reveal for section heads and key cards, respecting reduced motion
   if(!prefersReduced){
-    const revealSelectors = '.section-head, .service-card, .persona-card, .value-card, .outcome-card, .commit-card, .mv-card, .process-step, .faq-item, .founder-block, .spotlight, .milestone, .portfolio-card, .blog-teaser-card';
+    const revealSelectors = '.section-head, .service-card, .persona-card, .value-card, .outcome-card, .commit-card, .mv-card, .process-step, .faq-item, .founder-block, .spotlight, .milestone, .portfolio-card, .blog-teaser-card, .review-card';
     const revealEls = document.querySelectorAll(revealSelectors);
     revealEls.forEach(el => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries)=>{
