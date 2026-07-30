@@ -41,6 +41,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://brayomee.online/category-shopify.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://brayomee.online/category-web-design.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://brayomee.online/category-ecommerce.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://brayomee.online/category-announcements.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://brayomee.online/welcome-to-the-blog.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

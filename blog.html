@@ -468,6 +468,13 @@
     color:var(--paper); font-family:inherit; font-size:14px; margin-top:8px;
   }
   .blog-search:focus{outline:none; border-color:var(--blue);}
+  .blog-categories{margin-top:16px; display:flex; flex-wrap:wrap; align-items:center; gap:10px; font-size:12.5px;}
+  .blog-categories-label{color:var(--muted-2); text-transform:uppercase; letter-spacing:0.05em; font-size:11px;}
+  .blog-categories a{
+    color:var(--muted); text-decoration:none; padding:5px 12px; border:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; transition:color var(--motion-fast) var(--ease), border-color var(--motion-fast) var(--ease);
+  }
+  .blog-categories a:hover{color:var(--blue); border-color:var(--blue-dim);}
   #blog-list{padding-top:0;}
   .blog-post-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
   @media (max-width:960px){ .blog-post-grid{grid-template-columns:repeat(2,1fr);} }
@@ -806,6 +813,13 @@
         <p>Notes from our team on what actually moves the needle for websites, stores, and digital marketing.</p>
       </div>
       <input type="text" id="blogSearchInput" class="blog-search" placeholder="Search posts…" aria-label="Search blog posts">
+      <div class="blog-categories">
+        <span class="blog-categories-label mono">Browse by category:</span>
+        <a href="category-shopify.html">Shopify</a>
+        <a href="category-web-design.html">Web Design</a>
+        <a href="category-ecommerce.html">eCommerce</a>
+        <a href="category-announcements.html">Announcements</a>
+      </div>
     </div>
   </section>
 

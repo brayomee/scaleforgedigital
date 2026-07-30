@@ -823,13 +823,29 @@
       <p class="blog-breadcrumb mono"><a href="index.html">Home</a> <span>→</span> <a href="blog.html">Blog</a> <span>→</span> Post Title</p>
 
       <div class="blog-post-header">
-        <!-- EDIT: category/eyebrow label, e.g. BRANDING, SEO, ECOMMERCE -->
-        <p class="eyebrow mono">CATEGORY LABEL</p>
+        <!-- ============================================================
+             EDIT: category label + link.
+             - Use one of the existing categories: SHOPIFY / WEB DESIGN / ECOMMERCE / ANNOUNCEMENT
+             - Point the href at the matching category page:
+               category-shopify.html / category-web-design.html /
+               category-ecommerce.html / category-announcements.html
+             - Starting a brand new category? Duplicate any category-*.html
+               file, rename it (e.g. category-branding.html), update its
+               title/heading/description, then link that new file here
+               instead — and add ONE line for it in sitemap.xml.
+             ============================================================ -->
+        <p class="eyebrow mono"><a href="category-shopify.html" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--blue);">CATEGORY LABEL</a></p>
         <!-- EDIT: post title -->
         <h1 class="blog-post-title">Your Post Title Goes Here</h1>
         <!-- EDIT: publish date -->
         <p class="blog-post-meta mono">Published <time datetime="2026-07-29">July 29, 2026</time> · ScaleForge Digital</p>
       </div>
+
+      <!-- ============================================================
+           REMINDER: after publishing this post, also add a matching
+           <a class="blog-post-card"> block to the correct category-*.html
+           page (and to blog.html's full archive) so it shows up there too.
+           ============================================================ -->
 
       <!-- ============================================================
            EDIT: This is the body of your post. Replace the placeholder
